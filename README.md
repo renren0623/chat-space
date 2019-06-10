@@ -14,7 +14,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|email|integer|unique: true|
 
 ### Association
 - has_many :groups, through: :members
