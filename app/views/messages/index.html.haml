@@ -1,0 +1,42 @@
+.information-box
+  %p.information-box-text
+    グループを作成しました
+
+.chat-window
+  .left-navi
+    .navi-top
+      .current-user-name
+        %p.name 名前
+      .navi-left-icon
+        = link_to root_path do
+          %i.fa.fa-edit
+      .navi-right-icon
+        = link_to root_path do
+          %i.fa.fa-cog
+    .all-group-name
+      = render 'group'
+
+  .right-contents
+    .right-header
+      .right-header-top
+        .current-group
+          %p 現在のクラス
+        .edit-button
+          =link_to 'Edit', root_path, class: "button"
+      .member-list
+        %ul
+          Member :
+          %li
+            dengan
+      .right-message-room
+        .messages
+          = render 'message'
+      .right-form
+        %form.form
+          = text_field_tag :message, '', class: 'form-box',  placeholder: 'type a message'
+          %label
+            %i.fa.fa-photo{class: 'image-button'}
+              %input.file{type: 'file'}
+          = submit_tag 'Send', class: "send-button"
+
+
