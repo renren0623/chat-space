@@ -1,24 +1,12 @@
-$white: #FFFFFF;
 
-
-.information-box {
-  background-color: #38AEF0;
-  width: 100%;
-
-  &-text {
-    text-align: center;
-    color: $white;
-  }
-}
 .chat-window {
   display: flex;
   position: relative;
   left: 0;
   top: 0;
-  z-index: 0;
 
   .left-navi {
-
+    height: 100%;
     .navi-top {
       height: 100px;
       width: 260px;
@@ -26,7 +14,7 @@ $white: #FFFFFF;
       background-color: #253141;
       display:flex;
 
-      .name {
+      .current-user-name {
         font-size: 16px;
         font-weight: bold;
         padding: 40px 20px 40px;
@@ -66,13 +54,20 @@ $white: #FFFFFF;
       .group {
         margin: 0 0 40px 0;
 
-        .group-name {
-          font-size: 15px;
-          padding: 0 0 5px 0;
-        }
 
-        .group-text {
-          font-size: 11px;
+        a {
+          text-decoration: none;
+          font-weight: normal;
+          color: $white;
+
+          .group-name {
+            font-size: 15px;
+            padding: 0 0 5px 0;
+          }
+
+          .group-text {
+            font-size: 11px;
+          }
         }
       }
     }
@@ -92,7 +87,7 @@ $white: #FFFFFF;
         color: #333333;
         padding: 28px 0 7px 40px;
 
-        .current-group p{
+        .current-group {
           padding: 8px 0;
         }
 
@@ -172,38 +167,43 @@ $white: #FFFFFF;
       .form {
         display: flex;
         width: 100%;
-        .form-box {
-          width: calc(100% - 170px);
-          height: 50px;
-          background-color: white;
-          padding: 0 40px 0 10px;
-          font-size: 16px;
-          color: #434A54;
-          border: none;
-          outline: none;
-          box-sizing: border-box;
-        }
+        .new_message {
+          display: flex;
+          width: 100%;
+          .form-box {
+            width: calc(100% - 170px);
+            height: 50px;
+            background-color: white;
+            padding: 0 40px 0 10px;
+            font-size: 16px;
+            color: #434A54;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+          }
 
-        .image-button {
-          font-size: 22px;
-          background: #fff;
-          height: 26px;
-          padding: 12px;
-          margin: 0 20px 0 0;
+          .image-button {
+            font-size: 22px;
+            background: #fff;
+            height: 26px;
+            padding: 12px;
+            margin: 0 20px 0 0;
+          }
+
           .file {
             display: none;
           }
-        }
 
-        .send-button {
-          height: 10px;
-          background-color: #38AEF0;
-          color:$white;
-          text-decoration: none;
-          padding: 15px 30px 35px 30px;
-          -webkit-appearance: none;
-          box-shadow: none;
-          border: none;
+          .send-button {
+            height: 10px;
+            background-color: #38AEF0;
+            color:$white;
+            text-decoration: none;
+            padding: 15px 30px 35px 30px;
+            -webkit-appearance: none;
+            box-shadow: none;
+            border: none;
+          }
         }
       }
     }
