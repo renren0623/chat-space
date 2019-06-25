@@ -1,42 +1,50 @@
-.information-box
-  %p.information-box-text
-    グループを作成しました
 
 .chat-window
   .left-navi
     .navi-top
       .current-user-name
-        %p.name 名前
+        = current_user.name
       .navi-left-icon
-        = link_to root_path do
+        = link_to new_group_path do
           %i.fa.fa-edit
       .navi-right-icon
-        = link_to root_path do
+        = link_to edit_user_path(current_user) do
           %i.fa.fa-cog
     .all-group-name
-      = render 'group'
+      - current_user.groups.each do |group|
+        .group
+          = link_to group_messages_path(group) do
+            .group-name
+              = group.name
+            .group-text
+              = group.latest_message
+
 
   .right-contents
     .right-header
       .right-header-top
         .current-group
-          %p 現在のクラス
+          = @group.name
         .edit-button
           =link_to 'Edit', root_path, class: "button"
       .member-list
         %ul
           Member :
-          %li
-            dengan
+          - @group.users.each do |user|
+            %li.group-user-name
+              = user.name
+
       .right-message-room
         .messages
-          = render 'message'
+          - @messages.each do |message|
+            = render partial: 'message', locals: { message: message }
+
       .right-form
-        %form.form
-          = text_field_tag :message, '', class: 'form-box',  placeholder: 'type a message'
-          %label
-            %i.fa.fa-photo{class: 'image-button'}
-              %input.file{type: 'file'}
-          = submit_tag 'Send', class: "send-button"
-
-
+        .form
+          = form_for [@group, @message] do |f|
+            = f.text_field :text, class: 'form-box', placeholder: 'type a message'
+            .form__mask
+              = f.label :image, class: 'form__mask__image' do
+                = fa_icon 'picture-o', class: 'image-button'
+                = f.file_field :image, class: 'file'
+            = f.submit 'Send', class: 'send-button'

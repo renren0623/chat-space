@@ -29,7 +29,7 @@ before_action :set_group, only: [:edit, :update]
 
   private
     def groups_params
-    params.require(:group).permit(:name, {:user_ids => []})
+      params.require(:group).permit(:name, user_ids: [])
     end
 
     def group_set

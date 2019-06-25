@@ -1,8 +1,13 @@
 .message
   .message-top
     .sender-name
-      %p ore
+      = message.user.name
     .send-date
-      %p 2019/02/21(Wed) 18:23:21
-  .message-text
-    %p rrrrrrrrrrrrrrr
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .message-contents
+    - if message.text.present?
+      .message-text
+        = message.text
+    - if message.image.present?
+      .message-image
+        = image_tag message.image.url
