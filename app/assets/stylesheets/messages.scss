@@ -159,7 +159,6 @@
 
     .right-form {
       height: 50px;
-      width: calc(100vw - 380px);
       display: flex;
       padding: 20px 40px 20px 40px;
       background-color: #DDDDDD;
@@ -188,6 +187,7 @@
             height: 26px;
             padding: 12px;
             margin: 0 20px 0 0;
+            cursor: pointer;
           }
 
           .file {
@@ -203,6 +203,7 @@
             -webkit-appearance: none;
             box-shadow: none;
             border: none;
+            cursor: pointer;
           }
         }
       }
