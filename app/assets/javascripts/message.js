@@ -24,16 +24,12 @@ $(function() {
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
-    var inputText = $(".form-box").val();
-    var inputImage = $(".file").val();
-    // var text = formData.get("message[text]")
-    // var image = formData.get('message[image]').name
-    // console.log(text)
-    // console.log(image)
+    var formData = new FormData(this);
+    var url = $(this).attr('action');
+    var inputText = formData.get("message[text]")
+    var inputImage = formData.get('message[image]').name
 
     if(!(inputText == "" && inputImage == "")) {
-      var formData = new FormData(this);
-      var url = $(this).attr('action');
 
       $.ajax({
         url: url,
