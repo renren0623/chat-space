@@ -15,10 +15,10 @@ before_action :set_group
         format.json
       end
     else
+      #js 切れてるブラウザかつformの中が空の時これが動く
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = 'メッセージを入力してください'
       render :index
-        # format.html { redirect_to group_messages_path(params[:group_id])}
     end
   end
 
