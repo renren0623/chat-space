@@ -34,17 +34,18 @@
             %li.group-user-name
               = user.name
 
-      .right-message-room
-        .messages
-          - @messages.each do |message|
-            = render partial: 'message', locals: { message: message }
+    .right-message-room
+      .messages
+        - @messages.each do |message|
+          = render partial: 'message', locals: { message: message }
 
-      .right-form
-        .form
-          = form_for [@group, @message] do |f|
+    .right-form
+      .form
+        = form_for [@group, @message] do |f|
+          .form__text
             = f.text_field :text, class: 'form-box', placeholder: 'type a message'
-            .form__mask
-              = f.label :image, class: 'form__mask__image' do
-                = fa_icon 'picture-o', class: 'image-button'
-                = f.file_field :image, class: 'file'
-            = f.submit 'Send', class: 'send-button'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              = fa_icon 'picture-o', class: 'image-button'
+              = f.file_field :image, class: 'file'
+          = f.submit 'Send', class: 'send-button'
